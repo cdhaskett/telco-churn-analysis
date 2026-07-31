@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  @page { size: Letter; margin: 0.55in 0.6in; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Calibri, Arial, sans-serif; color: #1f2733; font-size: 10.5pt; line-height: 1.42; }
+  .kicker { font-size: 8pt; letter-spacing: 2.5px; color: #64748b; font-weight: 600; }
+  h1 { font-family: Cambria, Georgia, serif; font-size: 25pt; color: #12233b; margin: 3px 0 5px; }
+  .thesis { font-size: 11pt; color: #334155; border-left: 3px solid #2563eb; padding-left: 10px; margin-bottom: 14px; }
+  .thesis b { color: #12233b; }
+  .row { display: flex; gap: 20px; }
+  .col-main { flex: 1.35; }
+  .col-side { flex: 1; }
+  h2 { font-family: Cambria, Georgia, serif; font-size: 12.5pt; color: #12233b; margin: 12px 0 6px; }
+  .finding { margin-bottom: 9px; }
+  .finding b { color: #12233b; }
+  .muted { color: #475569; }
+  ol.recs { margin: 4px 0 0 16px; }
+  ol.recs li { margin-bottom: 6px; }
+  ol.recs li b { color: #12233b; }
+  .roi-box { background: #0e1b2e; color: #fff; border-radius: 10px; padding: 14px 16px; text-align: center; margin-bottom: 12px; }
+  .roi-box .big { font-family: Cambria, serif; font-size: 30pt; font-weight: bold; color: #22c55e; line-height: 1; }
+  .roi-box .lbl { font-size: 9pt; color: #9fb3c8; margin-bottom: 8px; }
+  .roi-box .x { font-family: Cambria, serif; font-size: 20pt; font-weight: bold; color: #fff; line-height: 1.1; }
+  .chart { width: 100%; border: 1px solid #e2e8f0; border-radius: 8px; }
+  .cap { font-size: 8.5pt; color: #64748b; margin-top: 5px; font-style: italic; }
+  .foot { border-top: 1px solid #e2e8f0; margin-top: 14px; padding-top: 7px; font-size: 8.5pt; color: #64748b; }
+  .foot b { color: #334155; }
+</style>
+</head>
+<body>
+  <div class="kicker">TELECOM · CUSTOMER ANALYTICS · EXECUTIVE BRIEF</div>
+  <h1>Reducing Customer Churn</h1>
+  <div class="thesis">
+    The carrier loses <b>26.5% of customers a year</b> — about <b>$1.67M</b> in annual
+    recurring revenue. A model-targeted retention play can net an estimated
+    <b>~$347K/year at 2.7x ROI</b>.
+  </div>
+
+  <div class="row">
+    <div class="col-main">
+      <h2>The question</h2>
+      <div class="muted">Who is most likely to leave, why, and is it worth paying to keep them?</div>
+
+      <h2>What we found</h2>
+      <div class="finding"><b>1. It's expensive churn.</b> <span class="muted">$1.67M/yr walks out
+        the door, and churners pay <b>more</b> than those who stay ($74 vs $61/mo) — so retention pays.</span></div>
+      <div class="finding"><b>2. The drivers are clear and consistent.</b> <span class="muted">Month-to-month
+        contracts churn <b>43%</b> vs <b>3%</b> on two-year; <b>53%</b> of new customers leave in the
+        first six months; electronic-check (45%) and no-tech-support (42%) customers are high-risk.</span></div>
+      <div class="finding"><b>3. It's predictable.</b> <span class="muted">A logistic-regression model
+        (test <b>AUC 0.85</b>) puts <b>67% of all churn in the top 30%</b> of customers by risk —
+        the basis for efficient targeting.</span></div>
+
+      <h2>Recommendation</h2>
+      <ol class="recs">
+        <li><b>Aim, don't spray.</b> Focus retention on the top 30% risk (2x budget efficiency).</li>
+        <li><b>Attack contract type.</b> Move high-risk month-to-month customers onto 1–2 year terms.</li>
+        <li><b>Fix the first six months.</b> Invest in onboarding and bundle tech support / online security (both roughly halve churn).</li>
+        <li><b>Shift electronic-check payers to autopay</b> — the highest-churn payment method.</li>
+      </ol>
+    </div>
+
+    <div class="col-side">
+      <div class="roi-box">
+        <div class="big">$347K</div>
+        <div class="lbl">estimated net benefit / year</div>
+        <div class="x">2.7x</div>
+        <div class="lbl">return on retention spend</div>
+      </div>
+      <img class="chart" src="figures/roi_waterfall.png" />
+      <div class="cap">Base case: a $60 offer to the top-30% risk segment (2,113 customers) at a
+        30% save rate. Positive down to a 15% save rate.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <b>Data:</b> IBM Telco Customer Churn (7,043 customers, public). &nbsp;
+    <b>Method:</b> pandas EDA + logistic-regression churn model (scikit-learn), risk-decile targeting,
+    scenario ROI. &nbsp; <b>Next step:</b> validate the save-rate assumption with a small A/B holdout before scaling.
+  </div>
+</body>
+</html>
