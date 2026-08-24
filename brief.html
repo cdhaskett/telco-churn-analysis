@@ -34,9 +34,9 @@
   <div class="kicker">TELECOM · CUSTOMER ANALYTICS · EXECUTIVE BRIEF</div>
   <h1>Reducing Customer Churn</h1>
   <div class="thesis">
-    The carrier loses <b>26.5% of customers a year</b> — about <b>$1.67M</b> in annual
-    recurring revenue. A model-targeted retention play can net an estimated
-    <b>~$347K/year at 2.7x ROI</b>.
+    <b>26.5% of customers in the dataset churned</b>, representing about <b>$1.67M</b> in
+    annualized recurring-revenue exposure. A model-targeted retention play can net an
+    estimated <b>~$347K/year at 2.7x ROI</b> under the stated assumptions.
   </div>
 
   <div class="row">
@@ -45,28 +45,29 @@
       <div class="muted">Who is most likely to leave, why, and is it worth paying to keep them?</div>
 
       <h2>What we found</h2>
-      <div class="finding"><b>1. It's expensive churn.</b> <span class="muted">$1.67M/yr walks out
-        the door, and churners pay <b>more</b> than those who stay ($74 vs $61/mo) — so retention pays.</span></div>
+      <div class="finding"><b>1. It's expensive churn.</b> <span class="muted">Churned customers represent
+        $1.67M in annualized revenue exposure, and they pay <b>more</b> than those who stay
+        ($74 vs $61/mo) - so retention is worth testing.</span></div>
       <div class="finding"><b>2. The drivers are clear and consistent.</b> <span class="muted">Month-to-month
         contracts churn <b>43%</b> vs <b>3%</b> on two-year; <b>53%</b> of new customers leave in the
         first six months; electronic-check (45%) and no-tech-support (42%) customers are high-risk.</span></div>
       <div class="finding"><b>3. It's predictable.</b> <span class="muted">A logistic-regression model
-        (test <b>AUC 0.85</b>) puts <b>67% of all churn in the top 30%</b> of customers by risk —
+        (test <b>AUC 0.85</b>) puts <b>67% of observed churn in the top 30%</b> of customers by risk -
         the basis for efficient targeting.</span></div>
 
       <h2>Recommendation</h2>
       <ol class="recs">
         <li><b>Aim, don't spray.</b> Focus retention on the top 30% risk (2x budget efficiency).</li>
-        <li><b>Attack contract type.</b> Move high-risk month-to-month customers onto 1–2 year terms.</li>
+        <li><b>Attack contract type.</b> Move high-risk month-to-month customers onto 1-2 year terms.</li>
         <li><b>Fix the first six months.</b> Invest in onboarding and bundle tech support / online security (both roughly halve churn).</li>
-        <li><b>Shift electronic-check payers to autopay</b> — the highest-churn payment method.</li>
+        <li><b>Shift electronic-check payers to autopay</b> - the highest-churn payment method.</li>
       </ol>
     </div>
 
     <div class="col-side">
       <div class="roi-box">
         <div class="big">$347K</div>
-        <div class="lbl">estimated net benefit / year</div>
+        <div class="lbl">estimated annualized net benefit</div>
         <div class="x">2.7x</div>
         <div class="lbl">return on retention spend</div>
       </div>
@@ -79,7 +80,7 @@
   <div class="foot">
     <b>Data:</b> IBM Telco Customer Churn (7,043 customers, public). &nbsp;
     <b>Method:</b> pandas EDA + logistic-regression churn model (scikit-learn), risk-decile targeting,
-    scenario ROI. &nbsp; <b>Next step:</b> validate the save-rate assumption with a small A/B holdout before scaling.
+    scenario ROI. &nbsp; <b>Note:</b> monthly charges are annualized for business-case modeling; save-rate should be validated with an A/B holdout.
   </div>
 </body>
 </html>
